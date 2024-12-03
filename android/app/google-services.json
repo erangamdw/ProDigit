@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "2890757655",
+    "project_id": "prodigit-87d90",
+    "storage_bucket": "prodigit-87d90.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2890757655:android:567e5bd7260d81e81bce52",
+        "android_client_info": {
+          "package_name": "com.eranga.prodigit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfIGDHOJ_nmVPjRlMPrJ_gi6Lec-eoNhA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
