@@ -34,6 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
           itemBuilder: (context, index) {
             final product = _controller.productsData.value.products![index];
             return ListView.builder(
+              shrinkWrap: true,
               itemCount: _controller.productsData.value.products?.length ?? 0,
               itemBuilder: (context, index) {
                 final product = _controller.productsData.value.products![index];
