@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/product_controller.dart';
+import 'detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -32,12 +33,33 @@ class _HomeScreenState extends State<HomeScreen> {
           itemCount: _controller.productsData.value.products?.length ?? 0,
           itemBuilder: (context, index) {
             final product = _controller.productsData.value.products![index];
-            return ListTile(
-              leading: product.thumbnail != null
-                  ? Image.network(product.thumbnail!, width: 50, height: 50)
-                  : const Icon(Icons.image_not_supported),
-              title: Text(product.title ?? "No Title"),
-              subtitle: Text("\$${product.price?.toStringAsFixed(2) ?? '0.00'}"),
+            return ListView.builder(
+              itemCount: _controller.productsData.value.products?.length ?? 0,
+              itemBuilder: (context, index) {
+                final product = _controller.productsData.value.products![index];
+                return Card(
+                  margin: const EdgeInsets.all(8.0),
+                  child: ListTile(
+                    leading: Image.network(
+                      product.thumbnail ?? 'https://via.placeholder.com/50',
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.cover,
+                    ),
+                    title: Text(product.title ?? "No Title"),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("\$${product.price?.toStringAsFixed(2) ?? '0.00'}"),
+                        Text("Brand: ${product.brand ?? 'No Brand'}"),
+                      ],
+                    ),
+                    onTap: () {
+                      Get.to(() => DetailScreen(product: product));
+                    },
+                  ),
+                );
+              },
             );
           },
         );
